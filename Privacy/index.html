@@ -656,32 +656,52 @@
 
 
 <h1 id="privacy-the-optional-steam-connection">Privacy — the optional Steam connection</h1>
-<p>GameStart can put <strong>your own Steam library</strong> on the store's shelves. This page is the
-plain-English record of exactly what that means. The short version: it's opt-in, it's
-read-only, and nothing about your library ever leaves your machine.</p>
+<blockquote>
+<p><strong>Planned for Steam-enabled builds.</strong> The secure connection remains unavailable in
+the current pre-release until its Steam setup and on-Steam checks are complete.</p>
+</blockquote>
+<p>When available, GameStart can put <strong>your own Steam library</strong> on the store's shelves. This page is the
+plain-English record of exactly what that means. The short version: it is opt-in and
+read-only. Limited library details pass through GameStart's online library service and
+may be held there for up to six hours.</p>
+<p>The service runs on Cloudflare's network. Processing and temporary storage may happen
+in places where Cloudflare operates its service. Before this connection is made
+available, this page will name the country or countries used for temporary storage.</p>
+<p>The connection starts <strong>off</strong>. You can enable it from the catalog screen; only your
+saved choice can turn it on. Installing or enabling a pack cannot connect Steam for
+you.</p>
 <h2 id="what-happens-if-you-opt-in">What happens if you opt in</h2>
 <ul>
-<li>You provide your <strong>public Steam profile</strong> (no password, no login through the game —
-  it reads the same public info anyone can see on your profile page).</li>
-<li>The game fetches your <strong>owned games list, playtime, and cover art</strong>, live, onto your
-  machine.</li>
+<li>The game asks the Steam app for a short-lived proof that you are signed in. It never
+  asks for your Steam password.</li>
+<li>GameStart's library service checks that proof with Steam, then requests your <strong>owned
+  game titles, playtime totals, and last-played times</strong>. The service may temporarily
+  keep your Steam account ID and up to 48 of those game records for no longer than six
+  hours.</li>
+<li>To prevent automated abuse, the service also keeps your connection address in a
+  daily request counter for about 25 hours.</li>
+<li>The game downloads that limited list and fetches cover art onto your machine.</li>
 <li>That data is used to fill the shelves, print the boxes, and (in the planned quiz
   fixtures) generate quizzes about <em>your</em> play history.</li>
 <li>Cover art is <strong>cached locally</strong> so later sessions load faster.</li>
+<li>If you host a co-op session, the resulting shelf entries can be shown to the players
+  who join you. Your sign-in proof and Steam password are not shared with them.</li>
 </ul>
 <h2 id="what-never-happens">What never happens</h2>
 <ul>
-<li>Your library data is <strong>never uploaded anywhere</strong> or shared with anyone. It travels
-  one way: from Steam to your machine.</li>
 <li>Nothing from your library is <strong>bundled into the game</strong> — every player's store is
-  fetched fresh from their own profile.</li>
-<li>The game <strong>never asks for your Steam password</strong> or acts on your account.</li>
+  prepared from the account that opted in.</li>
+<li>The game cannot buy, sell, launch, or modify anything on your Steam account.</li>
+<li>GameStart's publishing key is kept on the online service; it is not included in the
+  game.</li>
 </ul>
 <h2 id="if-you-opt-out-or-your-profile-is-private">If you opt out (or your profile is private)</h2>
 <p>You get the <strong>fictional catalog</strong> — a full store of original parody games with
 authored stats. Everything works, including the planned quizzes (they just quiz the
 fictional catalog instead of your backlog). You can change your mind either way at any
-time; the store restocks accordingly.</p>
+time; the store restocks accordingly. Turning the connection off prevents new library
+requests. The service copy expires within six hours; locally cached cover art and the
+last downloaded list can remain until you clear the game's local data.</p>
 
 
 
