@@ -415,10 +415,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-gear-tab" class="md-nav__link">
+  <a href="#the-skills-tab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Gear tab
+        The Skills tab
       
     </span>
   </a>
@@ -426,10 +426,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-gadget-shelf" class="md-nav__link">
+  <a href="#the-skill-bar-keys-15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The gadget shelf
+        The skill bar (keys 1–5)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passive-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gear-tab-and-the-gadget-shelf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Gear tab and the gadget shelf
       
     </span>
   </a>
@@ -628,10 +661,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-gear-tab" class="md-nav__link">
+  <a href="#the-skills-tab" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Gear tab
+        The Skills tab
       
     </span>
   </a>
@@ -639,10 +672,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-gadget-shelf" class="md-nav__link">
+  <a href="#the-skill-bar-keys-15" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The gadget shelf
+        The skill bar (keys 1–5)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#active-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Active skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passive-skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passive skills
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-gear-tab-and-the-gadget-shelf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Gear tab and the gadget shelf
       
     </span>
   </a>
@@ -679,9 +745,9 @@
 
 <h1 id="talents-gear">Talents &amp; Gear</h1>
 <blockquote>
-<p>Talent <strong>earning</strong> and <strong>spending</strong> are both live: buy and use the first two
-gadgets from the pause menu's <strong>Gear</strong> tab. The rest of the gadget shelf is
-still Planned.</p>
+<p>Talents are live end to end: earn talent points, spend them in the pause menu's
+<strong>Skills</strong> and <strong>Gear</strong> tabs, cast skills with keys <code>1</code>–<code>5</code>, and fire your held
+gadget with <code>G</code>.</p>
 </blockquote>
 <h2 id="talent-points">Talent points</h2>
 <p>One currency: <strong>talent points</strong> — money is gone from the store entirely. You earn
@@ -693,19 +759,92 @@ them two ways:</p>
 <li><strong>Sorting (the slow trickle):</strong> regular tidying XP slowly converts into talent
   points on its own.</li>
 </ul>
-<h2 id="the-gear-tab">The Gear tab</h2>
-<p>Open the pause menu and pick <strong>Gear</strong> to spend talents:</p>
+<h2 id="the-skills-tab">The Skills tab</h2>
+<p>Open the pause menu and pick <strong>Skills</strong> to spend talents:</p>
 <ul>
-<li><strong>Learn</strong> a gadget (and later its stronger versions — I, II, III) with talent
-  points.</li>
-<li><strong>Take along</strong> one gadget at a time — whichever is in hand answers the
-  gear key (<strong>G</strong> on keyboard, <strong>West button</strong> on gamepad).</li>
-<li>Gadgets run on charges that refill on their own; if nothing happens, it's
-  recharging or has nothing to grab.</li>
+<li>Your unspent <strong>talent points</strong> show at the top.</li>
+<li>Skills are grouped into <strong>Active Skills</strong> — each wearing the number of its key,
+  <code>1</code> to <code>5</code> — and <strong>Passives</strong>.</li>
+<li>Every skill level costs exactly <strong>1 talent point</strong>. Each entry shows your level
+  (like <code>Lv 2/10</code>), the cooldown, and what every level improves; press <strong>Upgrade</strong>
+  to buy the next one. A maxed skill says <strong>MAX</strong>.</li>
 </ul>
-<p>Your carry capacity stays the standard eight-slot ring for now.</p>
-<h2 id="the-gadget-shelf">The gadget shelf</h2>
-<p>Store gadgets, each a loving parody of infamous game-industry hardware:</p>
+<h2 id="the-skill-bar-keys-15">The skill bar (keys 1–5)</h2>
+<p>Five slots sit on your screen, one per active skill. Press keyboard keys <code>1</code>–<code>5</code>
+to cast. (The skill keys are keyboard-only for now — no gamepad binding yet.)</p>
+<ul>
+<li>Skills you haven't bought yet sit dimmed in the bar until you learn them.</li>
+<li>A cast only "spends" the skill when it actually does something. If it can't work
+  right now, a short hint pops up instead — like <em>"Hold a box first"</em>, <em>"On
+  cooldown"</em>, or <em>"No charges left"</em> — and no cooldown starts.</li>
+<li>Cooldowns refill on their own; higher levels mostly shorten them.</li>
+</ul>
+<h2 id="active-skills">Active skills</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Skill</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>1</code></td>
+<td><strong>Sort</strong></td>
+<td>Tidies the stack in your hands — copies of the same game snap together in order</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><strong>Assemble</strong></td>
+<td>Pulls loose copies of the game you're holding (or aiming at) across the aisle, straight to your hands</td>
+</tr>
+<tr>
+<td><code>3</code></td>
+<td><strong>Insight</strong></td>
+<td>Briefly lights up matching loose copies around you — and the places they belong</td>
+</tr>
+<tr>
+<td><code>4</code></td>
+<td><strong>Auto-Shelving</strong></td>
+<td>Your <strong>Buddy</strong> helper shelves the boxes you're carrying onto the shelf you're aiming at</td>
+</tr>
+<tr>
+<td><code>5</code></td>
+<td><strong>Shelf Guide</strong></td>
+<td>Lights up the shelf spot where your held box belongs, and keeps it lit for a good while</td>
+</tr>
+</tbody>
+</table>
+<h2 id="passive-skills">Passive skills</h2>
+<p>Passives work all the time once learned — no key, no cooldown:</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Deluxe Cart</strong></td>
+<td>Carry more boxes at once — two levels, each raising your carry limit further</td>
+</tr>
+<tr>
+<td><strong>Stock Sense</strong></td>
+<td>While you hold a box, nearby copies of the same game get a purple outline — the "reunite the stack" glow</td>
+</tr>
+</tbody>
+</table>
+<p>A note on the glow: highlighting matching games used to be free for everyone. It
+now belongs to <strong>Stock Sense</strong> — if you liked it, it's a cheap early buy.</p>
+<h2 id="the-gear-tab-and-the-gadget-shelf">The Gear tab and the gadget shelf</h2>
+<p>Gadgets are separate from skills: physical store gear, each a loving parody of
+infamous game-industry hardware. Open the pause menu's <strong>Gear</strong> tab to learn one
+(and later its stronger versions — I, II, III), then <strong>take along</strong> one gadget at
+a time — whichever is in hand answers the gear key (<strong>G</strong> on keyboard, <strong>West
+button</strong> on gamepad). Gadgets run on charges that refill on their own; if nothing
+happens, it's recharging or has nothing to grab.</p>
 <table>
 <thead>
 <tr>
@@ -726,32 +865,23 @@ them two ways:</p>
 <td><strong>Live</strong></td>
 </tr>
 <tr>
-<td><strong>Spotter Visor</strong></td>
-<td>Scanner vision — highlights where your held box belongs, and lights up matching strays</td>
-<td>Planned</td>
-</tr>
-<tr>
 <td><strong>Pocket Terminal</strong></td>
 <td>The counter terminal's database, portable — check play stats right at the shelf. The quiz-solver's best friend</td>
 <td>Planned</td>
 </tr>
-<tr>
-<td><strong>Deluxe Pack</strong></td>
-<td>Carry more boxes at once</td>
-<td>Planned</td>
-</tr>
 </tbody>
 </table>
+<p>Two former shelf entries grew up and moved: the <strong>Spotter Visor</strong>'s scanner vision
+shipped as the <strong>Insight</strong> and <strong>Shelf Guide</strong> skills (plus the <strong>Stock Sense</strong>
+glow), and the <strong>Deluxe Pack</strong> shipped as the <strong>Deluxe Cart</strong> passive.</p>
 <h2 id="lost-boxes-and-the-buddy-promise">Lost boxes and the Buddy promise</h2>
 <p>Throw a box hard enough and it can end up somewhere you can't reach. The store
 keeps track of every lost box, and the Buddy is the recovery gadget: tap the
 gear key and it brings back the most urgent one.</p>
 <p>Never bought the Buddy? The store lends it to you anyway once the night is 90%
 sorted — no last box is ever unrecoverable.</p>
-<p>A note for quiz fans: early quiz fixtures are designed to be solvable bare-handed —
-gear makes them <em>comfortable</em>, never <em>required</em>.</p>
-<p>One current-build freebie is moving: the glow that highlights matching games while you
-hold a box will become part of the Spotter Visor's basic tier when it ships.</p>
+<p>A note for quiz fans: quiz fixtures are designed to be solvable bare-handed —
+skills and gear make them <em>comfortable</em>, never <em>required</em>.</p>
 
 
 
