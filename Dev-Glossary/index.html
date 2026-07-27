@@ -660,7 +660,7 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 </tr>
 <tr>
 <td>what you're carrying / held stack</td>
-<td><strong>held ring</strong> (<code>HeldRing</code>)</td>
+<td><strong>held stack</strong> (<code>HeldRing</code>, renaming to <code>GsHeldStack</code> — glossary GL-011)</td>
 <td>the <code>2 / 5</code> HUD counter is its index</td>
 </tr>
 <tr>
@@ -669,9 +669,9 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td>one tag per title-run, derived on every strip change</td>
 </tr>
 <tr>
-<td>Free Basket</td>
-<td><code>floor-freeslots</code> / <code>GsStoreSectionIds.FloorFreeSlots</code></td>
-<td>manual, non-penalized destination; excluded from persistent SKU-home ownership</td>
+<td>Free Basket (retired #303 — frozen tombstone)</td>
+<td><code>floor-freeslots</code> / <code>GsStoreSectionIds.FloorFreeSlots</code> (successor: <code>floor-games</code>)</td>
+<td>nothing new mints it; kept for legacy scenes/saves — glossary GL-012/GL-014</td>
 </tr>
 <tr>
 <td>section</td>
@@ -760,6 +760,11 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 </tr>
 </tbody>
 </table>
+<blockquote>
+<p>Dev-facing canonical vocabulary (term families, banned aliases, frozen wire ids) is
+ruled by <code>gamestart-unity/Docs/Design/GameStart_Glossary.md</code> — this page only maps
+player terms to internal ones.</p>
+</blockquote>
 <h2 id="where-the-real-documentation-lives">Where the real documentation lives</h2>
 <ul>
 <li>Design source of truth: <code>gamestart-unity/Docs/README.md</code> (reading order) — v2 spec +
