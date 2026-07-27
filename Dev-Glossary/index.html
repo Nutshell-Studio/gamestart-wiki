@@ -710,8 +710,8 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 </tr>
 <tr>
 <td>the store / title screens</td>
-<td><code>GsStore.unity</code> / <code>GsTitle.unity</code></td>
-<td>the two shipping scenes</td>
+<td><code>GsGen_store-art2.unity</code> / <code>GsTitle.unity</code></td>
+<td>the shipping scenes — the store is the Scene-Designer-generated replica, rebuilt in place; <code>GsStore.unity</code> is deprecated archaeology (owner ruling 2026-07-20)</td>
 </tr>
 <tr>
 <td>Steam connection</td>
@@ -747,6 +747,16 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td><strong>Portal Pistol</strong></td>
 <td><code>portal_pistol</code> / <code>gear.portal_pistol</code> (<code>GsPortalPistolCore</code>/<code>Host</code>/<code>Effect</code>, Tool 6)</td>
 <td>added by owner ruling 2026-07-21 (Tool-6 wave, reverses ruling E's five-slot cap); brand-new skill, not a rename — rights-register row pending</td>
+</tr>
+<tr>
+<td><strong>After-Hours Co-op</strong></td>
+<td><code>GsCoopBootstrap</code> (SP4-P1 session launcher, <code>GsNet</code>)</td>
+<td>spawns on title boot only; a session enters the legacy browse lane for its whole run (<code>GsNightBootRoute.EnterLegacyBrowseSession</code>) and in-session save writes are refused (<code>GsCoopSession.Active</code> gates <code>GsSaveV4Io.IsSaveOwner</code>) — the host's solo save survives byte-identical</td>
+</tr>
+<tr>
+<td>"needs store content that isn't available" (title screen)</td>
+<td><code>MissingPacks</code> / <code>PackMismatch</code> save classes, incl. the <code>HARDWARE_ROSTER_CHANGED</code> roster stamp (#368/#412)</td>
+<td>honest failure instead of a silently lost Continue; the title probe carries the same roster record as the boot classifier</td>
 </tr>
 </tbody>
 </table>
