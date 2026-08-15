@@ -453,6 +453,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#content-packs-gspack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content packs (.gspack)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-title-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The title bank
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steam-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steam Workshop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#making-a-pack" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -639,6 +672,39 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#content-packs-gspack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Content packs (.gspack)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-title-bank" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The title bank
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#steam-workshop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Steam Workshop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#making-a-pack" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -678,15 +744,17 @@
 
 
 <h1 id="modding">Modding</h1>
-<p>GameStart's store stock is data-driven, and the game has a built-in, player-visible
-modding surface: <strong>packs</strong>.</p>
+<p>GameStart's store stock is data-driven, and the game has built-in, player-visible
+modding surfaces: <strong>packs</strong>, <strong>content pack files (<code>.gspack</code>)</strong>, and the
+<strong>title bank</strong>.</p>
 <blockquote>
-<p><strong>Pre-release note:</strong> the pack format is still evolving. Packs you make today may
-need updates as the game develops.</p>
+<p><strong>Pre-release note:</strong> the pack formats are still evolving. Packs you make today
+may need updates as the game develops.</p>
 </blockquote>
 <h2 id="packs">Packs</h2>
-<p>A <strong>pack</strong> is a folder of content that changes what fills the store — the fictional
-games on the shelves: their titles, platforms, box styles, and cover art.</p>
+<p>A <strong>pack</strong> is a folder of content that changes what fills the store:
+exclude games from the shelves, rename the fictional titles, or (in the classic
+browse mode) restrict which platform sections a game may stock.</p>
 <p>In the game's pack screen you can:</p>
 <ul>
 <li>See every installed pack (it says <em>"No packs installed"</em> until you add one).</li>
@@ -695,23 +763,59 @@ games on the shelves: their titles, platforms, box styles, and cover art.</p>
   touch the same game.</li>
 <li>Click <strong>"Open packs folder"</strong> to jump straight to where packs live on disk.</li>
 </ul>
+<p>Packs now shape the night shift too: excluded games leave the
+pool the store stocks from, and fictional renames appear on box names. Excludes
+change which world a <strong>New Game</strong> builds — an existing save keeps the world it
+was made with, and its Continue will tell you if the pack set changed under it.</p>
 <h2 id="installing-a-pack">Installing a pack</h2>
 <ol>
 <li>In the game, open the pack screen and click <strong>"Open packs folder"</strong>.</li>
 <li>Drop the pack's folder in there (one folder per pack).</li>
 <li>Back in the game, enable it with its toggle.</li>
 </ol>
+<h2 id="content-packs-gspack">Content packs (<code>.gspack</code>)</h2>
+<p>A <strong>content pack</strong> is a single <code>.gspack</code> file that can carry deeper, gameplay-
+shaping data — today that means <strong>skills and talents</strong> (the gear you unlock and
+the talent trees behind it), with more content kinds on the same road. Packs are
+<strong>data only</strong>: no code ever runs from a pack, and every pack is strictly
+validated on load — a broken pack is skipped with a message, never a crash.</p>
+<p>To install one: drop the <code>.gspack</code> file into the <code>Mods</code> folder next to your
+saves (<code>%USERPROFILE%\AppData\LocalLow\&lt;studio&gt;\&lt;game&gt;\Mods</code>). Rename it to
+<code>&lt;name&gt;.gspack.disabled</code> to switch it off. Load order is alphabetical; a pack
+made with gameplay content stamps itself into your save, so a save made with
+mods will refuse to continue if the mod set changes (protecting the save, not
+punishing you — restore the packs and it loads again).</p>
+<h2 id="the-title-bank">The title bank</h2>
+<p>The fictional titles on the boxes come from word banks you can replace: create
+<code>Mods\titlebank.json</code> with your own words —</p>
+<pre><code class="language-json">{
+  &quot;sp3aNames&quot;: [&quot;My Favorite Fake Game&quot;],
+  &quot;adjectives&quot;: [&quot;Copperleaf&quot;, &quot;Mossy&quot;],
+  &quot;nouns&quot;: [&quot;Harbor&quot;, &quot;Junction&quot;]
+}
+</code></pre>
+<p>— and the store names its stock from your banks on the next launch. Real
+trademarks are refused (the whole file is skipped if any word matches the
+deny list), and a malformed file just falls back to the built-in names.</p>
+<h2 id="steam-workshop">Steam Workshop</h2>
+<p>The first slice of Workshop support is in the game: <strong>subscribe</strong> to a
+GameStart Workshop item and the game installs it on the next launch —
+<code>.gspack</code> files land in <code>Mods</code>, folder packs land in the pack screen.
+<strong>Unsubscribe</strong> and it's removed the same way. (Publishing tools and the
+public Workshop hub go live with the Steam release — until then packs travel
+by file sharing, exactly as above.)</p>
+<p><strong>Planned next:</strong> sharable presets of your store settings, so you can hand a
+friend your whole store setup in one go.</p>
 <h2 id="making-a-pack">Making a pack</h2>
-<p>The honest answer for now: the format is documented for developers rather than
-polished for creators — it's a folder of plain-text files describing games plus image
-files for cover art. If you're comfortable poking at files, see the
-<a href="../Dev-Glossary/">Dev Glossary</a> for where the technical documentation lives.</p>
-<p><strong>Planned:</strong> first-class mod support with Steam Workshop sharing, so packs can be
-subscribed to instead of hand-copied — plus sharable presets of your store settings,
-so you can hand a friend your whole store setup in one go.</p>
+<p>The honest answer for now: the formats are documented for developers rather than
+polished for creators — a folder pack is a set of plain-text files, and a
+content pack is built with the in-editor Pack Workbench. If you're comfortable
+poking at files, see the <a href="../Dev-Glossary/">Dev Glossary</a> for where the technical
+documentation lives.</p>
 <h2 id="what-packs-cant-touch">What packs can't touch</h2>
 <p>Packs can curate which games appear in the store, but they cannot switch the Steam
-connection on for you. That choice always remains yours — see <a href="../Privacy/">Privacy</a>.</p>
+connection on for you. That choice always remains yours — see <a href="../Privacy/">Privacy</a>.
+Packs also can't run code, load DLLs, or reach outside their own data — by design.</p>
 
 
 
