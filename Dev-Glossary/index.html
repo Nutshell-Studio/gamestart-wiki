@@ -664,9 +664,9 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td>the <code>2 / 5</code> HUD counter is its index</td>
 </tr>
 <tr>
-<td>price tag (white/red)</td>
+<td>price tag (white / plain / yellow / red)</td>
 <td><code>PriceTagRail</code> / <code>PriceTagLedger</code> / <code>PriceTagController</code></td>
-<td>one tag per title-run, derived on every strip change</td>
+<td>one tag per occupied slot; white = home-correct <strong>and</strong> this cell's accept ceiling ≥ title copy count <strong>and</strong> stack ≥ title copy count (<code>GsPriceTagGrade.Home</code>); plain = home-correct but the title is not complete on this cell (<code>Filling</code>); yellow = Elsewhere hint; red = Wrong</td>
 </tr>
 <tr>
 <td>Free Basket (retired #303 — frozen tombstone)</td>
