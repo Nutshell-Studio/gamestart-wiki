@@ -750,8 +750,13 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 </tr>
 <tr>
 <td><strong>Spotter Visor</strong></td>
-<td><code>scan_highlight</code> / <code>gear.virtual_boy</code> (<code>GsScanHighlightEffect</code>, Tool 2)</td>
-<td>resurrected by owner roster ruling 2026-08-18 (Portal Return retired to dormant, Tendril Grab moved to Tool 4); the wire/gear ids keep the historical <code>virtual_boy</code> spelling while the RR-011 mark stays out of player copy</td>
+<td><code>scan_highlight</code> / <code>gear.virtual_boy</code> (<code>GsScanHighlightEffect</code>, DORMANT)</td>
+<td>resurrected by owner roster ruling 2026-08-18, then displaced off Tool 2 by <strong>Scope Shot</strong> (#1008, grill lock 2026-08-28). Not on the default roster, so <code>GsSkillLayout.Defaults</code> ships it <code>enabled=false</code>; the talent branch stays purchasable for a Studio re-enable. The wire/gear ids keep the historical <code>virtual_boy</code> spelling while the RR-011 mark stays out of player copy</td>
+</tr>
+<tr>
+<td><strong>Scope Shot</strong></td>
+<td><code>scope_shot</code> / <code>gear.scope_shot</code> (<code>GsScopeShotEffect</code> + <code>GsScopeShotHost</code>, Tool 2)</td>
+<td>scoped ADS place-or-fling of the HELD item. Decisions live in the pure <code>GsScopeShotCore</code>; the driver owns aim, presentation, cooldown-on-fire and the authority calls. NEW wire id — <code>gear.virtual_boy</code> was deliberately not renamed into it. RR-029</td>
 </tr>
 <tr>
 <td><strong>After-Hours Co-op</strong></td>
