@@ -694,6 +694,11 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td>same-library ⇒ same store (catalog-hash-guarded)</td>
 </tr>
 <tr>
+<td>catalog choice (DEFAULT / ALL PARODY / MY GAMES + SHIPPED)</td>
+<td><code>GsNightCatalogSource</code> <code>Default</code> / <code>ParodyTitles</code> / <code>PersonalOverlay</code> — the player subset; <code>RealTitles</code> / <code>SteamLibrary</code> stay Dev-Knobs-only</td>
+<td><code>GsCatalogChoicePrompt</code> every New Game (#1230), staged via <code>TryStageCatalogSource</code> to machine key <code>dev.night.catalog_source</code>; MY GAMES + SHIPPED gated on <code>GsSteamLibraryImportService.HasUsableImportedLibrary</code>. <strong>QA note:</strong> the picker restages on every pick, so a <code>RealTitles</code> / <code>SteamLibrary</code> selection made in Dev Knobs no longer survives a NEW GAME click — boot those two through the co-op <strong>HOST</strong> button instead (<code>OnHostCoop</code> mints a fresh world with no picker)</td>
+</tr>
+<tr>
 <td>terminal</td>
 <td><code>GsTerminalPage</code> + CRT render path</td>
 <td>counter-only; the portable parody retired with the legacy gear sweep</td>
