@@ -555,30 +555,24 @@ unannounced.</p>
 No. Connecting your Steam profile is optional — without it you get a full store of
 original fictional games. See <a href="../Privacy/">Privacy</a>.</p>
 <p><strong>Does my Steam data get uploaded anywhere?</strong>
-No. It's fetched from your public profile onto your machine and stays there.
-<a href="../Privacy/">Privacy</a> has the full breakdown.</p>
+The optional library connection is read-only. Limited library details pass through
+GameStart's library service and can be held there temporarily. <a href="../Privacy/">Privacy</a>
+explains consent, local caching and what the service receives.</p>
 <p><strong>Is there co-op?</strong>
-An early version is in the build. Every night you start is also a co-op store, and its
-privacy has two settings. <strong>PRIVATE</strong> is offline: nobody can join, not through Steam,
-not with a code. <strong>FRIENDS ONLY</strong> is online: your Steam friends can join from their
-friends list or <strong>Join Game</strong>, and anyone you hand your <strong>SESSION CODE</strong> to can type it
-into <strong>JOIN BY CODE</strong> on the title screen's <strong>CO-OP</strong> panel — the code is your share key.
-Your code lives on the pause menu's <strong>Co-op</strong> tab while the room is <strong>FRIENDS ONLY</strong>, with a
-<strong>COPY</strong> button (host or guest); it is not shown on the in-store HUD, and the pause menu
-shows no code while the room is <strong>PRIVATE</strong>. (Editor and Development builds, such as a
-playtest zip, may still show a small corner strip with the code; release builds do not.)
-The CO-OP panel's <strong>FRIENDS CAN FIND MY GAME</strong> toggle picks which setting new nights
-start with (on = FRIENDS ONLY, off = PRIVATE), and the <strong>FRIENDS' GAMES</strong> list shows
-friends' FRIENDS ONLY stores you can join right away. While hosting, the pause menu's
-Co-op tab shows the <strong>ROOM PRIVACY</strong> row — <strong>PRIVATE</strong> or <strong>FRIENDS ONLY</strong> — for the
-running night, plus <strong>INVITE FRIENDS</strong> while it's FRIENDS ONLY. Switching to PRIVATE
-mid-night stops new joins; friends already in your store stay. Treat co-op as a
-playground — the co-op store is separate from your solo night, nothing is kept when the
-session ends, and your solo save is never touched. The quiz walls are switched off in the
-launch build. The full tidy-the-night-together co-op is still in design.</p>
+Use <strong>CO-OP</strong> on Title to <strong>Host Game</strong>, join a friend's listed store, or enter a
+<strong>Session code</strong>. Regular <strong>New Game</strong> and <strong>Continue</strong> start solo stores. Hosting
+uses the selected save; the host saves the shared store, while guests keep their own
+local save slots separate.</p>
+<p>In the pause menu's <strong>Co-op</strong> tab, the host can choose <strong>Private</strong> or <strong>Friends Only</strong>.
+Private stops new joins and hides the session code, Copy and Invite controls; friends
+already in the room stay connected. Friends Only makes those sharing controls
+available. Guests can see the roster and available code but cannot change privacy.</p>
+<p>A failed join keeps the entered code, region and save selection for an explicit
+<strong>Retry</strong>. If an active session unexpectedly ends, you return to Title with a brief
+notice. Nothing automatically reconnects or claims that unsaved progress was saved.</p>
 <p><strong>Is there a timer or fail state?</strong>
 No. No customers, no shifts to survive, no clock pressure — time of day is ambiance.
-The store only ever gets tidier.</p>
+You can take your time. Picking games back up can reduce the current tidying count.</p>
 <p><strong>Can I rebind controls?</strong>
 Yes, fully — keyboard/mouse and gamepad. See
 <a href="../Getting-Started/">Getting Started</a> for defaults.</p>
@@ -596,13 +590,12 @@ in-game screen. See <a href="../Modding/">Modding</a>.</p>
 <p><strong>The last box — will I be hunting one lost item forever?</strong>
 The design explicitly guards against the "399 of 400" problem with tools already in
 the build: finished shelves keep a lit "done" gleam so what's left stands out, the
-<strong>Stock Sense</strong> glow outlines nearby copies of the game you're holding, the
-and <strong>Tendril Grab</strong> reels those strays in from across your district —
+<strong>Stock Sense</strong> glow outlines nearby copies of the game you're holding, and <strong>Tendril Grab</strong> reels those strays in from across your district —
 straight into your hands. See <a href="../Talents-and-Gear/">Talents &amp; Gear</a>.</p>
 <p><strong>Can I lose my save?</strong>
-The game never deletes a save. If yours is damaged or from a previous version, the
-title screen offers <strong>KEEP A COPY &amp; START FRESH</strong> — the old save is backed up before a
-new night starts. See <a href="../Getting-Started/">Getting Started</a>.</p>
+If a save is damaged or cannot be loaded by the current version, the
+title screen offers <strong>Back up &amp; start new game</strong>. It must back up the selected save
+before a new night starts; a backup failure keeps the form open and starts no game. See <a href="../Getting-Started/">Getting Started</a>.</p>
 
 
 

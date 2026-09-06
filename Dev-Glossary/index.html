@@ -696,7 +696,7 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <tr>
 <td>catalog choice (DEFAULT / ALL PARODY / MY GAMES + SHIPPED)</td>
 <td><code>GsNightCatalogSource</code> <code>Default</code> / <code>ParodyTitles</code> / <code>PersonalOverlay</code> — the player subset; <code>RealTitles</code> / <code>SteamLibrary</code> stay Dev-Knobs-only</td>
-<td><code>GsCatalogChoicePrompt</code> every New Game (#1230), staged via <code>TryStageCatalogSource</code> to machine key <code>dev.night.catalog_source</code>; MY GAMES + SHIPPED gated on <code>GsSteamLibraryImportService.HasUsableImportedLibrary</code>. <strong>QA note:</strong> the picker restages on every pick, so a <code>RealTitles</code> / <code>SteamLibrary</code> selection made in Dev Knobs no longer survives a NEW GAME click — boot those two through the co-op <strong>HOST</strong> button <strong>with no save present</strong> instead — that branch of <code>OnHostCoop</code> runs the New Game tuple gate and mints a fresh world without the picker, so the staged value survives. HOST <em>with</em> a save is a hydrating continue (re-probes like Continue, forges nothing), so it will not apply the staged source</td>
+<td><code>GsCatalogChoicePrompt</code> every New Game (#1230), staged on explicit Start via <code>TryStageCatalogSource</code> to machine key <code>dev.night.catalog_source</code>; MY GAMES + SHIPPED gated on <code>GsSteamLibraryImportService.HasUsableImportedLibrary</code>. <strong>QA note:</strong> the picker stages only on explicit Start, so a <code>RealTitles</code> / <code>SteamLibrary</code> selection made in Dev Knobs no longer survives a NEW GAME click — boot those two through the co-op <strong>HOST</strong> button <strong>with no save present</strong> instead — that branch of <code>OnHostCoop</code> runs the New Game tuple gate and mints a fresh world without the picker, so the staged value survives. HOST <em>with</em> a save is a hydrating continue (re-probes like Continue, forges nothing), so it will not apply the staged source</td>
 </tr>
 <tr>
 <td>terminal</td>
@@ -722,16 +722,6 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td>Steam connection</td>
 <td>Steam Web API fetch, opt-in, runtime-only</td>
 <td>covers cache: <code>CoverCache/</code>; never bundled, never uploaded</td>
-</tr>
-<tr>
-<td>quiz fixtures</td>
-<td>quiz zones (v4 spec §4)</td>
-<td>deterministic slot layout from library stats</td>
-</tr>
-<tr>
-<td>setting an answer while keeping the held copy</td>
-<td><code>ReferenceAnswer</code> quiz mode</td>
-<td>resolver-owned virtual answer; no physical slot occupancy or inventory transfer</td>
 </tr>
 <tr>
 <td>talent points</td>
@@ -765,8 +755,8 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 </tr>
 <tr>
 <td><strong>After-Hours Co-op</strong></td>
-<td><code>GsCoopBootstrap</code> (SP4-P1 session launcher, <code>GsNet</code>)</td>
-<td>spawns on title boot only; a session enters the legacy browse lane for its whole run (<code>GsNightBootRoute.EnterLegacyBrowseSession</code>) and in-session save writes are refused (<code>GsCoopSession.Active</code> gates <code>GsSaveV4Io.IsSaveOwner</code>) — the host's solo save survives byte-identical</td>
+<td><code>GsCoopBootstrap</code> explicit Host/Join; <code>GsCoopReturnContext</code> carries transient failure state</td>
+<td>Title host persistence is gated by <code>HostSaveAuthorized</code>; guests never capture their own slot from the shared world. Release Continue/New Game stay local; private rooms hide sharing controls but preserve existing peers</td>
 </tr>
 <tr>
 <td>"needs store content that isn't available" (title screen)</td>
@@ -788,6 +778,15 @@ player terms to internal ones.</p>
 <li>Contributing to the game itself: repo-root <code>CONTRIBUTING.md</code>.</li>
 <li>Wiki editing rules &amp; update workflow: <code>wiki/_Maintenance.md</code>.</li>
 </ul>
+<p>Quiz gameplay is retired in both systems. Legacy quiz DTOs, wire frames, frozen
+world allocations and historical reward claims remain compatibility data. Retired
+physical quiz allocations remain normal unordered physical homes; the cut does not
+delete supported-save items or invent reward refunds.</p>
+<p>The completion report snapshots <code>GsStoreTidyingSnapshot</code>: live WHITE copy progress
+minus the baseline, plus unique canonical titles whose required copies are all
+WHITE across variants. Later movement changes live HUD/save progress only. Finale
+presentation uses local phase state; independently skipping credits does not mutate
+the replicated progression hash.</p>
 
 
 

@@ -668,7 +668,7 @@
 <tbody>
 <tr>
 <td>Move</td>
-<td><code>W</code> <code>A</code> <code>S</code> <code>D</code></td>
+<td><code>W</code> <code>A</code> <code>S</code> <code>D</code> / Left stick</td>
 </tr>
 <tr>
 <td>Look</td>
@@ -692,11 +692,7 @@
 </tr>
 <tr>
 <td>Put down / throw</td>
-<td>Right Click (hold to throw harder) / <code>RT</code></td>
-</tr>
-<tr>
-<td>Drop</td>
-<td><code>Q</code></td>
+<td><code>Q</code> or Right Click (hold and release to throw) / <code>RT</code></td>
 </tr>
 <tr>
 <td>Cycle through what you're holding</td>
@@ -723,7 +719,7 @@
 <td><code>T</code></td>
 </tr>
 <tr>
-<td>Show your stats overlay</td>
+<td>Open or close Base Stats</td>
 <td><code>B</code> / <code>D-pad Up</code></td>
 </tr>
 <tr>
@@ -791,19 +787,23 @@ so you don't have to hold the key down. The settings' <strong>ACCESSIBILITY</str
 collects the motion comfort options — field of view, head bob strength, and a
 <strong>Reduce camera motion</strong> switch that calms the camera in one press. The <strong>GRAPHICS</strong>
 tab has resolution, refresh rate, fullscreen, and a frame limit (VSync by default).
-The <strong>GRAPHICS</strong> tab also carries the <strong>Language</strong> dropdown — <strong>Auto
-(Steam / system)</strong>, <strong>English</strong>, <strong>日本語</strong>, <strong>简体中文</strong>, <strong>繁體中文</strong>, <strong>繁體中文（香港）</strong>, <strong>Deutsch</strong>, <strong>Français</strong>, <strong>Português (Brasil)</strong>, <strong>한국어</strong>, or <strong>Español</strong>;
+A display-mode change previews for 15 seconds: choose <strong>Keep</strong> to save it or <strong>Revert</strong>
+to return to the previous mode. Cancel, closing the panel or waiting out the countdown
+also reverts. Other settings save when changed.
+The <strong>GENERAL</strong> tab carries the <strong>Language</strong> dropdown — <strong>Auto
+(Steam / system)</strong>, <strong>English</strong>, <strong>日本語</strong>, <strong>简体中文</strong>, <strong>繁體中文</strong>, <strong>繁體中文（香港）</strong>, <strong>Deutsch</strong>, <strong>Français</strong>, <strong>Português (Brasil)</strong>, <strong>한국어</strong>, <strong>Español</strong>, or <strong>Español (Latinoamérica)</strong>;
 Auto follows your Steam language for this game, then your system language. The
 <strong>GENERAL</strong> tab holds your player name and privacy. A new language applies to screens as they open, and box art keeps
 its printed language, the way an import shop's shelves would. <strong>GENERAL</strong> also
 has a switch that shows each game's genre beside its name in the bottom-right
 list of what you're holding — it starts off, and you can turn it on.</p>
 <h2 id="your-first-night">Your first night</h2>
-<p>Picking <strong>NEW GAME</strong> first asks you to <strong>choose your catalog</strong> — what stocks
-the store tonight: <strong>DEFAULT</strong> (the shipped mix), <strong>ALL PARODY</strong> (parody games
-only), or <strong>MY GAMES + SHIPPED</strong> if you've imported your Steam library. Then a
-<strong>LOADING GAME</strong> screen appears while the night is set
-up — a counter ticks up as the store fills (like <code>123 / 500 items loaded</code>).
+<p>Pick <strong>NEW GAME</strong>, select a save slot, and <strong>choose your catalog</strong>: <strong>DEFAULT</strong>
+(the shipped mix), <strong>ALL PARODY</strong> (parody games only), or <strong>MY GAMES + SHIPPED</strong>
+if you've imported your Steam library. Choosing a catalog does not start the game;
+press <strong>START GAME</strong> when ready. An occupied slot asks you to confirm its backup
+before starting. The loading screen shows the current preparation stage and the
+actual number of game cases prepared.
 The very first night can take a few minutes while cover art is prepared; later
 nights are much faster. When it finishes, you're in.</p>
 <ol>
@@ -827,24 +827,27 @@ nights are much faster. When it finishes, you're in.</p>
    up any game, see your play stats, and browse store info.</li>
 </ol>
 <h2 id="saving">Saving</h2>
-<p>The game autosaves when you pause. Progress you make stays made. When a save
-exists, the title screen shows <strong>CONTINUE</strong>; picking <strong>NEW GAME</strong> starts the
-night over.</p>
-<p>The title screen's <strong>LOAD GAME</strong> menu holds three save slots. Picking a slot
-with a save loads it right away; its card shows your level, how many items
-you've put away, and when you last played. One slot is always the <strong>ACTIVE</strong>
-slot — that's the save <strong>CONTINUE</strong>, <strong>NEW GAME</strong>, and autosaves all use.
-Picking an empty slot makes it active so <strong>NEW GAME</strong> starts there. Starting
-a new game in one slot never touches the others.</p>
-<p>The title screen also has a <strong>SETTINGS</strong> menu — the same settings as the pause
-menu, including your <strong>player name</strong>.</p>
-<p>If a save can't be continued, the title screen says why in plain words: it may be
-damaged, from a previous version of the game, from a <em>newer</em> version (update the game
-to continue), or it may need store content that isn't available any more — for
-example, after the store's stock lineup changed in an update. Whatever the reason,
-the fix is the same button: <strong>BACK UP SAVE &amp; START NEW GAME</strong> — your old save is
-backed up, never deleted, before the new night begins. If the title screen says it couldn't
-check your save right now, trying again is safe.</p>
+<p>The game saves when you pause. <strong>Return to Title</strong> is one action: in a solo store,
+a failed save keeps the store open so you can retry. In co-op, the host attempts to
+save before leaving; if that fails, the session still ends and Title reports the
+failure. Guests do not replace their own saves with the host's store.</p>
+<p><strong>LOAD GAME</strong> shows three save slots. Selecting a card previews that save;
+<strong>CONTINUE</strong> starts it. The main Title <strong>CONTINUE</strong> button resumes the selected save
+directly. An occupied card shows its current <strong>Completion</strong> percentage and <strong>Last
+played</strong> time. A save that did not record that progress shows <strong>Unavailable</strong>.
+An empty card offers <strong>New Game</strong> without invented progress.</p>
+<p>Before a new game replaces an occupied slot, choose <strong>Cancel</strong> or <strong>Back up &amp; start
+new game</strong>. Cancel keeps your slot and catalog choice. The backup covers only the
+selected slot; the other slots stay intact. If backup fails, no new game starts and
+the form stays available. No files are deleted by that backup operation.</p>
+<p>If a save cannot be continued, its preview explains the problem and offers the same
+backup-and-new-game route. A temporary check failure can be retried; version or
+missing-content problems need the matching game version or content. This does not
+repair the old save.</p>
+<p>You can <strong>Continue</strong> a completed save to visit the store, move items and use skills.
+The ending does not replay automatically. The host can deliberately use the <strong>OPEN
+sign</strong> to replay the credits; finishing or skipping that replay returns to Title.
+The original completion report and time stay unchanged.</p>
 
 
 
