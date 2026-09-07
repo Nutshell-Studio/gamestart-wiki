@@ -486,6 +486,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terminal-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal games
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#translations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -727,6 +738,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#terminal-games" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal games
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#translations" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -789,8 +811,8 @@
 
 <h1 id="modding">Modding</h1>
 <p>GameStart's store stock is data-driven, and the game has built-in, player-visible
-modding surfaces: <strong>packs</strong>, <strong>content pack files (<code>.gspack</code>)</strong>, and the
-<strong>title bank</strong>.</p>
+modding surfaces: <strong>packs</strong> and <strong>content pack files (<code>.gspack</code>)</strong> — which carry
+skills, translations, the <strong>title bank</strong>, <strong>custom sounds</strong> and <strong>terminal games</strong>.</p>
 <blockquote>
 <p><strong>Pre-release note:</strong> the pack formats are still evolving. Packs you make today
 may need updates as the game develops.</p>
@@ -820,37 +842,49 @@ way applies to the real titles; fictional titles can be renamed but not hidden.<
 <li>Back in the game, enable it with its toggle — it applies the next time you visit the store.</li>
 </ol>
 <h2 id="content-packs-gspack">Content packs (<code>.gspack</code>)</h2>
-<p>A <strong>content pack</strong> is a single <code>.gspack</code> file that can carry deeper, gameplay-
-shaping data — today that means <strong>skills and talents</strong> (the skills you unlock and
-the talent trees behind them), with more content kinds on the same road. Packs are
-<strong>data only</strong>: no code ever runs from a pack, and every pack is strictly
-validated on load — a broken pack is skipped with a message, never a crash.</p>
+<p>A <strong>content pack</strong> is a single <code>.gspack</code> file that can carry deeper data —
+<strong>skills and talents</strong> (the gear you unlock and the talent trees behind it),
+<strong>translations</strong>, a <strong>title bank</strong>, <strong>custom sounds</strong> and <strong>terminal games</strong>
+(each described below). Packs are <strong>data only</strong>: no code ever runs from a pack,
+and every pack is strictly validated on load — a broken pack is skipped with a
+message, never a crash.</p>
 <p>To install one: drop the <code>.gspack</code> file into the <code>Mods</code> folder next to your
 saves (<code>%USERPROFILE%\AppData\LocalLow\&lt;studio&gt;\&lt;game&gt;\Mods</code>). Rename it to
-<code>&lt;name&gt;.gspack.disabled</code> to switch it off. Load order is alphabetical; a pack
+<code>&lt;name&gt;.gspack.disabled</code> to switch it off. Packs load in the order the MODS
+panel shows (higher priority first, then by pack id); a pack
 made with gameplay content stamps itself into your save, so a save made with
 mods will refuse to continue if the mod set changes (protecting the save, not
 punishing you — restore the packs and it loads again).</p>
 <h2 id="the-title-bank">The title bank</h2>
-<p>The fictional titles on the boxes come from word banks you can replace: create
-<code>Mods\titlebank.json</code> with your own words —</p>
+<p>The fictional titles on the boxes come from word banks you can replace. A
+content pack can carry a <strong>title bank</strong> — a JSON file of your own words:</p>
 <pre><code class="language-json">{
+  &quot;bankId&quot;: &quot;bank.my-store&quot;,
   &quot;sp3aNames&quot;: [&quot;My Favorite Fake Game&quot;],
   &quot;adjectives&quot;: [&quot;Copperleaf&quot;, &quot;Mossy&quot;],
   &quot;nouns&quot;: [&quot;Harbor&quot;, &quot;Junction&quot;]
 }
 </code></pre>
-<p>— and the store names its stock from your banks on the next launch. Real
-trademarks are refused (the whole file is skipped if any word matches the
-deny list), and a malformed file just falls back to the built-in names.</p>
+<p>— and the store names its stock from your banks on the next launch. The first
+enabled pack in load order that carries a bank is the one used. Real
+trademarks are refused (the whole bank is skipped if any word matches the
+deny list), a bank too small to name the whole store is set aside with a
+note, and the built-in names serve in either case.</p>
 <h2 id="custom-sounds">Custom sounds</h2>
-<p>The store's sounds are swappable, one file per sound: drop 16-bit WAV files
-into <code>Mods\audio\</code> named for the sound they replace —</p>
+<p>The store's sounds are swappable, one file per sound: a content pack can carry
+WAV files named for the sound they replace —</p>
 <p><code>pick.wav</code> · <code>place.wav</code> · <code>refuse.wav</code> · <code>complete.wav</code> · <code>chime.wav</code> ·
 <code>footstep_a.wav</code> · <code>footstep_b.wav</code> · <code>ambient_loop.wav</code> · <code>kiosk_loop.wav</code></p>
-<p>A file that isn't a plain 16-bit WAV is skipped with a note and the built-in
-sound keeps playing. Sounds are cosmetic — they never affect saves or playing
-together.</p>
+<p>A file that isn't a WAV the game can read is skipped with a note and the
+built-in sound keeps playing; a one-shot sound may be up to 2 MB, the two
+loops up to 8 MB. When two packs replace the same sound, the pack that loads
+first wins — the load order the MODS panel shows (higher priority first, then by
+pack id). Sounds are cosmetic — they never affect saves or playing together.</p>
+<h2 id="terminal-games">Terminal games</h2>
+<p>The terminal's arcade games are web pages, and a content pack can add its
+own: a folder with a <code>game.json</code> and the page beside it. The game appears on
+the terminal's menu on the next launch and is removed again when the pack is.
+(A game folder copied by hand is no longer picked up — put it in a pack.)</p>
 <h2 id="translations">Translations</h2>
 <p>Content pack files can carry translations: a pack's language files replace
 any translated line of the game's text, and untranslated lines keep their
