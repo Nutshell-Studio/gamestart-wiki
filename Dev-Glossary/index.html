@@ -719,6 +719,11 @@ is machine-checked by <code>tools/wiki-term-lint/</code>). If you're a player, y
 <td>the shipping scenes — the store is the Scene-Designer-generated replica, rebuilt in place; <code>GsStore.unity</code> is deprecated archaeology (owner ruling 2026-07-20)</td>
 </tr>
 <tr>
+<td>store scene pick (Dev Knobs: SNAKE / ATRIUM)</td>
+<td><code>GsStoreRoute</code> <code>Legacy</code> / <code>Atrium</code> → <code>GsStore_snake.unity</code> / <code>GsGen_store-atrium.unity</code>, chosen through <code>dev.night.store_route</code> (<code>GsStoreRoutePick</code>)</td>
+<td>#1618. Editor/dev builds only; staged to the <strong>session</strong> layer (<code>GsConfigLayerKind.Session</code> — Editor <code>SessionState</code>, so it survives Stop Play, domain reload and return to title and dies with the Editor; a player's session is its process), never the machine layer. Unset follows <code>GsStoreSceneRegistry.defaultNewGameRoute</code>, which the knob never writes — shipped New Game stays ATRIUM. <strong>NEW GAME only:</strong> CONTINUE loads the route recorded on that save (<code>GsSaveDataV4.storeRoute</code>, additive; older saves infer from the companion's store id, and a route that contradicts it refuses fail-closed). <strong>QA note:</strong> the explicit co-op <strong>HOST</strong> button still hosts <code>GsStore_snake</code> by build index (<code>GsCoopBootstrap.ResolveStoreBuildIndex</code>) — Atrium co-op is out of scope for #1618 — and an ATRIUM pick makes New Game's solo auto-host stand down, which is the existing route gate, not a regression</td>
+</tr>
+<tr>
 <td>Steam connection</td>
 <td>Steam Web API fetch, opt-in, runtime-only</td>
 <td>covers cache: <code>CoverCache/</code>; never bundled, never uploaded</td>
