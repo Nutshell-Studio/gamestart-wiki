@@ -838,9 +838,15 @@ nights are much faster. When it finishes, you're in.</p>
 </ol>
 <h2 id="saving">Saving</h2>
 <p>The game saves when you pause. <strong>Return to Title</strong> is one action: in a solo store,
-a failed save keeps the store open so you can retry. In co-op, the host attempts to
-save before leaving; if that fails, the session still ends and Title reports the
-failure. Guests do not replace their own saves with the host's store.</p>
+a failed save keeps the store open so you can retry. <strong>Exit Game</strong> saves first too:
+if that save fails, the button reads <strong>SAVE FAILED — QUIT ANYWAY?</strong> and a second
+press quits. In co-op, the host attempts to save before leaving; if that fails, the
+session still ends and Title reports the failure. Guests do not replace their own
+saves with the host's store.</p>
+<p>The game also keeps your previous autosave. If a save was damaged by an interrupted
+write (for example, the PC lost power just as it saved), the game restores that
+previous autosave on its own and the save's preview tells you; up to about 90 seconds
+of play may be missing.</p>
 <p>The save board shows three save slots. Selecting a card previews that save;
 <strong>CONTINUE</strong> starts it. The main Title <strong>CONTINUE</strong> button resumes the selected save
 directly. An occupied card shows its current <strong>Completion</strong> percentage and <strong>Last
@@ -849,11 +855,18 @@ An empty card offers <strong>NEW GAME</strong> without invented progress.</p>
 <p>Before a new game replaces an occupied slot, choose <strong>Cancel</strong> or <strong>Back up &amp; start
 new game</strong>. Cancel keeps your slot and catalog choice. The backup covers only the
 selected slot; the other slots stay intact. If backup fails, no new game starts and
-the form stays available. No files are deleted by that backup operation.</p>
+the form stays available. No files are deleted by that backup operation. An empty
+card that still has a backup says so, with the backup's date.</p>
+<p>A slot's preview lists its three newest <strong>Backups</strong>, each with its date and a
+<strong>RESTORE</strong> button. Restoring brings that backup back as the slot's save; a save
+already in the slot is backed up first, so a restore can itself be undone. Each slot
+keeps its ten newest backups.</p>
 <p>If a save cannot be continued, its preview explains the problem and offers the same
-backup-and-new-game route. A temporary check failure can be retried; version or
-missing-content problems need the matching game version or content. This does not
-repair the old save.</p>
+backup-and-new-game route. It names the cause when it can: the save's world file is
+missing, the world file belongs to a different night, or the save file itself is
+damaged; a backup listed below it may still restore. A temporary check failure can be
+retried; version or missing-content problems need the matching game version or
+content.</p>
 <p>You can <strong>Continue</strong> a completed save to visit the store, move items and use skills.
 The ending does not replay automatically. The host can deliberately use the <strong>OPEN
 sign</strong> to replay the credits; finishing or skipping that replay returns to Title.

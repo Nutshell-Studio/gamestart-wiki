@@ -664,7 +664,10 @@ straight into your hands. See <a href="../Talents-and-Gear/">Talents &amp; Gear<
 <p><strong>Can I lose my save?</strong>
 If a save is damaged or cannot be loaded by the current version, the
 title screen offers <strong>Back up &amp; start new game</strong>. It must back up the selected save
-before a new night starts; a backup failure keeps the form open and starts no game. See <a href="../Getting-Started/">Getting Started</a>.</p>
+before a new night starts; a backup failure keeps the form open and starts no game.
+A save damaged by an interrupted write is replaced by your previous autosave
+automatically, and the slot's preview lists its newest <strong>Backups</strong> with a <strong>RESTORE</strong>
+button. See <a href="../Getting-Started/">Getting Started</a>.</p>
 <h2 id="report-a-problem">Report a problem</h2>
 <p>If the game crashes, freezes, or a save won't continue, write to
 <a href="mailto:support@nutshell.studio">support@nutshell.studio</a>. Tell us what happened and
@@ -677,8 +680,8 @@ plain text, so you can read them first.</p>
 <li><strong>Your saves</strong> — the <code>Saves</code> folder. Each slot on the save board has its own files
   there, named after it: <code>slot_0</code> for <strong>SLOT 1</strong>, <code>slot_1</code> for <strong>SLOT 2</strong>, <code>slot_2</code>
   for <strong>SLOT 3</strong>. A backup made by <strong>Back up &amp; start new game</strong> stays in the same
-  folder, with <code>.bak-</code> and the date added to its name. Zipping the whole folder is
-  easiest.</li>
+  folder, with <code>.bak-</code> and the date added to its name; the previous autosave ends in
+  <code>.prev</code>. Zipping the whole folder is easiest.</li>
 </ul>
 <p><strong>On Windows</strong>, both are in the game's folder:
 <code>%USERPROFILE%\AppData\LocalLow\Nutshell Studio\GameStart</code></p>
